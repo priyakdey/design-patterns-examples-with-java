@@ -30,14 +30,7 @@ jobs:
         distribution: 'zulu'
         cache: 'gradle'
     - name: Building the application 
-      uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
-      with:
-        arguments: build -x test
-    - name: Running unit test case
-      uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
-      with:
-        arguments: test
-
-
-
+      run: chmod +x gradlew && ./gradlew build -x test
+    - name: Run the unit test cases 
+      run: ./gradlew test
 
