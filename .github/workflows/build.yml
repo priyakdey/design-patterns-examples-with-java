@@ -33,4 +33,11 @@ jobs:
       run: chmod +x gradlew && ./gradlew build -x test
     - name: Run the unit test cases 
       run: ./gradlew test
+    steps:
+    - uses: actions/checkout@master
+    - uses: codecov/codecov-action@v3
+    with:
+      files: ./build/coverage-report/test/jacocoTestReport.xml
+      fail_ci_if_error: true # optional (default = false)
+      verbose: true # optional (default = false)
 
